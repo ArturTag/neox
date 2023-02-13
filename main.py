@@ -49,7 +49,7 @@ def main(fp16:bool=False,bf16:bool=False):
 
     prompt = 'Machine learning is '
     input_tokenized = tokenizer(prompt, return_tensors="pt")
-    output = model.generate(input_tokenized["input_ids"].to(0), do_sample=True,max_length=100,temperature=0.9,top_k=50,top_p=0.9)
+    output = model.generate(input_tokenized["input_ids"].to(0), do_sample=True,max_length=100,temperature=0.9,top_k=10,top_p=0.9)
     output_text = tokenizer.decode(output[0].tolist())
     print(output_text)
 
